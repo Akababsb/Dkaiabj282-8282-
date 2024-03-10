@@ -7,7 +7,7 @@ function scrollToBottom() {
 
 function addMessage(message, sender) {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('message', sender);
+    messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
     messageElement.innerText = message;
     chatBox.appendChild(messageElement);
     scrollToBottom();
@@ -15,6 +15,7 @@ function addMessage(message, sender) {
 
 function userSendMessage() {
     const message = userInput.value.trim();
+    console.log('User Message:', message); // Add this line to log user's message
     if (message === '') return;
     addMessage(message, 'user');
     userInput.value = '';
@@ -24,7 +25,7 @@ function userSendMessage() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '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' // Replace YOUR_OPENAI_API_KEY with your actual API key
+            'Authorization': 'Bearer YOUR_OPENAI_API_KEY' // Replace YOUR_OPENAI_API_KEY with your actual API key
         },
         body: JSON.stringify({
             question: message,
@@ -35,6 +36,7 @@ function userSendMessage() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log('API Response:', data); // Add this line to log API response
         const aiResponse = data.answers[0].text;
         addMessage(aiResponse, 'bot');
     })

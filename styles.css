@@ -42,3 +42,22 @@ header h1 {
     background-color: #333;
     color: #fff;
 }
+
+.message {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 70%;
+}
+
+.user-message {
+    background-color: #1E90FF; /* User message color */
+    color: #fff;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #008000; /* Bot message color */
+    color: #fff;
+    align-self: flex-start;
+}

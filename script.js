@@ -25,7 +25,7 @@ function userSendMessage() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_OPENAI_API_KEY' // Replace YOUR_OPENAI_API_KEY with your actual API key
+            'Authorization': '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' // Replace YOUR_OPENAI_API_KEY with your actual API key
         },
         body: JSON.stringify({
             question: message,
